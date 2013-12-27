@@ -26,19 +26,19 @@ local should = {
 
 	end,
 
-	containKey = function(item, collection, message)
+	haveKey = function(item, collection, message)
 
 		assert(collection[item], string.format(message or "Expected the key %s to exist, but didn't.", item))
 
 	end,
 
-	notContainKey = function(item, collection, message)
+	notHaveKey = function(item, collection, message)
 
 		assert(collection[item] == nil, string.format(message or "Expected the key %s to exist, but didn't.", item))
 
 	end,
 
-	containValue = function(item, collection, message)
+	haveValue = function(item, collection, message)
 
 		local inCollection = false
 
@@ -52,7 +52,7 @@ local should = {
 
 	end,
 
-	notContainValue = function(item, collection, message)
+	notHaveValue = function(item, collection, message)
 
 		local inCollection = false
 
