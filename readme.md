@@ -13,9 +13,15 @@ local t = {
 }
 
 should.haveCount(2, t)
-
-
+should.haveKey(1, t)
+should.haveValue("a", t)
+should.notHaveKey(4, t)
+should.notHaveValue("s", t)
 ```
+
+#Notes
+
+* `.haveCount` will count the actual number of elements in a table, and ignores gaps in indexed tables.
 
 
 
