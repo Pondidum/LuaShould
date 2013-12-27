@@ -1,98 +1,22 @@
-local lunatic = loadfile("lib\\lunatic.lua")()
-local should = require("should")
+local project = loadfile("lib\\project.lua")()
 
-local tests = lunatic.new()
 
-tests.add("should.haveCount tests", {
+local testProject = project:new({
 
-	when_counting_a_nil_table = function()
+	files = project:io(function(io)
 
-		local t = nil
+		io.addFile("tests\\init.lua")
+		io.addFilesIn("tests")
 
-		local success = pcall(function() should.haveCount(5, nil) end)
+	end),
 
-		assert(success == false)
+	run = function(ns)
 
-	end,
-
-	when_counting_an_indexed_table_with_the_right_element_count = function()
-
-		local t = {"a", "b", "c"}
-
-		local success = pcall(function() should.haveCount(3, t) end)
-
-		assert(success)
-
-	end,
-
-	when_counting_an_indexed_table_with_the_wrong_element_count = function()
-
-		local t = {"a", "b", "c"}
-
-		local success = pcall(function() should.haveCount(7, t) end)
-
-		assert(success == false)
-
-	end,
-
-	when_counting_a_keyed_table_with_the_right_element_count = function()
-
-		local t = {
-			["a"] = "a",
-			["b"] = "b",
-			["c"] = "c",
-		}
-
-		local success = pcall(function() should.haveCount(3, t) end)
-
-		assert(success)
-
-	end,
-
-	when_counting_a_keyed_table_with_the_wrong_element_count = function()
-
-		local t = {
-			["a"] = "a",
-			["b"] = "b",
-			["c"] = "c",
-		}
-
-		local success = pcall(function() should.haveCount(7, t) end)
-
-		assert(success == false)
-
-	end,
-
-	when_counting_an_indexed_table_with_gaps_and_the_right_element_count = function()
-
-		local t = {
-			[1] = "a",
-			[2] = "b",
-			[9] = "c",
-		}
-
-		local success = pcall(function() should.haveCount(3, t) end)
-
-		assert(success)
-
-	end,
-
-	when_counting_an_indexed_table_with_gaps_and_the_wrong_element_count = function()
-
-		local t = {
-			[1] = "a",
-			[2] = "b",
-			[9] = "c",
-		}
-
-		local success = pcall(function() should.haveCount(7, t) end)
-
-		assert(success == false)
+		ns.tests.run()
+		ns.tests.print()
 
 	end,
 
 })
 
-
-tests.run()
-tests.print()
+testProject.run()
