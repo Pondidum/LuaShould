@@ -41,7 +41,8 @@ local should = {
 
 	notHaveKey = function(item, collection, message)
 
-		assert(collection[item] == nil, string.format(message or "Expected the key %s to exist, but didn't.", item))
+		assert(collection[item] == nil, string.format(message or "Expected the key %s to exist, but didn't.",
+													  tostring(item)))
 
 	end,
 
