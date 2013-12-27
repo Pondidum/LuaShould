@@ -1,4 +1,4 @@
-local lunatic = require("lunatic")
+local lunatic = loadfile("lib\\lunatic.lua")()
 local should = require("should")
 
 local tests = lunatic.new()
