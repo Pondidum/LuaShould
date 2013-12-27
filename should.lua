@@ -10,7 +10,9 @@ local should = {
 			actual = actual + 1
 		end
 
-		assert(actual == expected, string.format(message or "Expected %d elements, but there were %d.", expected, actual))
+		assert(actual == expected, string.format(message or "Expected %d elements, but there were %d.",
+												 tostring(expected),
+												 tostring(actual)))
 
 	end,
 
