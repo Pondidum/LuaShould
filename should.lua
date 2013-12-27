@@ -34,7 +34,8 @@ local should = {
 
 	haveKey = function(item, collection, message)
 
-		assert(collection[item], string.format(message or "Expected the key %s to exist, but didn't.", item))
+		assert(collection[item], string.format(message or "Expected the key %s to exist, but didn't.",
+											   tostring(item)))
 
 	end,
 
