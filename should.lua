@@ -16,15 +16,17 @@ local should = {
 
 	equal = function(expected, actual, message)
 
-		assert(actual == expected, string.format(message or "Expected %s and %s to be the same, but were different.", 
-												 tostring(expected), 
+		assert(actual == expected, string.format(message or "Expected %s and %s to be the same, but were different.",
+												 tostring(expected),
 												 tostring(actual)))
 
 	end,
 
 	notEqual = function(expected, actual, message)
 
-		assert(actual ~= expected, string.format(message or "Expected %s and %s to be different, but were the same.", expected, actual))
+		assert(actual ~= expected, string.format(message or "Expected %s and %s to be different, but were the same.",
+												 tostring(expected),
+												 tostring(actual)))
 
 	end,
 
