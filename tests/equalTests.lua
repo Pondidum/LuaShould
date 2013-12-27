@@ -29,4 +29,25 @@ tests.add("should.equal tests", {
 
 	end,
 
+	when_checking_an_equal_parameter = function()
+
+		local item = {}
+
+		local success, e = pcall(function() should.equal(item, item) end)
+
+		assert(success == true, e)
+
+	end,
+
+	when_checking_an_equivalent_parameter = function()
+
+		local item1 = {}
+		local item2 = {}
+
+		local success, e = pcall(function() should.equal(item1, item2) end)
+
+		assert(success == false, e)
+
+	end,
+
 })
