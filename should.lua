@@ -71,7 +71,8 @@ local should = {
 			end
 		end
 
-		assert(inCollection == false, string.format(message or "Expected %s to not be in the collection, but it was.", item))
+		assert(inCollection == false, string.format(message or "Expected %s to not be in the collection, but it was.",
+													tostring(item)))
 
 	end,
 
