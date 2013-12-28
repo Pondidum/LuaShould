@@ -10,7 +10,7 @@ local should = {
 			actual = actual + 1
 		end
 
-		assert(actual == expected, string.format(message or "Expected %d elements, but there were %d.",
+		assert(actual == expected, string.format(message or "Expected %s elements, but there were %s.",
 												 tostring(expected),
 												 tostring(actual)))
 
@@ -18,7 +18,7 @@ local should = {
 
 	equal = function(expected, actual, message)
 
-		assert(actual == expected, string.format(message or "Expected %s and %s to be the same, but were different.",
+		assert(actual == expected, string.format(message or "Expected '%s' and '%s' to be the same, but were different.",
 												 tostring(expected),
 												 tostring(actual)))
 
@@ -26,7 +26,7 @@ local should = {
 
 	notEqual = function(expected, actual, message)
 
-		assert(actual ~= expected, string.format(message or "Expected %s and %s to be different, but were the same.",
+		assert(actual ~= expected, string.format(message or "Expected '%s' and '%s' to be different, but were the same.",
 												 tostring(expected),
 												 tostring(actual)))
 
@@ -34,14 +34,14 @@ local should = {
 
 	haveKey = function(item, collection, message)
 
-		assert(collection[item], string.format(message or "Expected the key %s to exist, but didn't.",
+		assert(collection[item], string.format(message or "Expected the key '%s' to exist, but didn't.",
 											   tostring(item)))
 
 	end,
 
 	notHaveKey = function(item, collection, message)
 
-		assert(collection[item] == nil, string.format(message or "Expected the key %s to exist, but didn't.",
+		assert(collection[item] == nil, string.format(message or "Expected the key '%s' to not exist, but didn't.",
 													  tostring(item)))
 
 	end,
@@ -56,7 +56,7 @@ local should = {
 			end
 		end
 
-		assert(inCollection, string.format(message or "Expected %s to be in the collection, but it wasn't.",
+		assert(inCollection, string.format(message or "Expected '%s' to be in the collection, but it wasn't.",
 										   tostring(item)))
 
 	end,
@@ -71,21 +71,21 @@ local should = {
 			end
 		end
 
-		assert(inCollection == false, string.format(message or "Expected %s to not be in the collection, but it was.",
+		assert(inCollection == false, string.format(message or "Expected '%s' to not be in the collection, but it was.",
 													tostring(item)))
 
 	end,
 
 	beTrue = function(item, message)
 
-		assert(item == true, string.format(message or "Expected %s to be True, but it wasn't.",
+		assert(item == true, string.format(message or "Expected '%s' to be True, but it wasn't.",
 										   tostring(item)))
 
 	end,
 
 	beFalse = function(item, message)
 
-		assert(item == false, string.format(message or "Expected %s to be True, but it wasn't.",
+		assert(item == false, string.format(message or "Expected '%s' to be True, but it wasn't.",
 											tostring(item)))
 
 	end,
