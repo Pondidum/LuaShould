@@ -90,6 +90,14 @@ local should = {
 
 	end,
 
+	beNil = function(item, message)
+
+		assert(item == nil, string.format(message or "Expected '%s' to be nil, but it was a %s.",
+										  tostring(item),
+										  type(item)))
+
+	end,
+
 }
 
 return should
