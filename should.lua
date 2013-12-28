@@ -76,6 +76,13 @@ local should = {
 
 	end,
 
+	beTrue = function(item, message)
+
+		assert(item == true, string.format(message or "Expected %s to be True, but it wasn't.",
+										   tostring(item)))
+
+	end,
+
 }
 
 return should
