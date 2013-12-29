@@ -1,4 +1,4 @@
-local VERSION = "0.0.1"
+local VERSION = "1.0.0"
 
 local should = {
 
