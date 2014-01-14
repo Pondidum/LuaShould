@@ -122,6 +122,12 @@ local should = {
 
 	end,
 
+	notBeEmpty = function(collection, message)
+
+		assert(next(collection), string.format(message or "Expected the collection to have items, but it had none."))
+
+	end,
+
 }
 
 return should
