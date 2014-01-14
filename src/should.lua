@@ -105,6 +105,23 @@ local should = {
 
 	end,
 
+	beEmpty = function(collection, message)
+
+		if next(collection) then
+
+			local count = 0
+
+			for k,v in pairs(collection) do
+				count = count + 1
+			end
+
+			assert(false, string.format(message or "Expected the collection to be empty, but it had %s items.",
+										tostring(count)))
+
+		end
+
+	end,
+
 }
 
 return should
